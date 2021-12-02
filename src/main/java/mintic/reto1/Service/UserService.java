@@ -113,7 +113,7 @@ public class UserService {
     public User authenticateUser(String email, String password) {
         Optional<User> usuario = userRepository.authenticateUser(email, password);
 
-        if (usuario.isEmpty()) {
+        if (!usuario.isPresent()) {
             return new User();
         } else {
             return usuario.get();
